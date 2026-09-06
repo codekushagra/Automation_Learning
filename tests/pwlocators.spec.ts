@@ -11,15 +11,32 @@ import {test,expect,Locator} from "@playwright/test";
 
 //page.getByAltText()
 test("Playwright Locators",async ({page})=>{
-    await page.goto("https://engineerdiaries.com/ui-framework");
+    await page.goto("https://engineerdiaries.com/selenium");
    
-    const logo:Locator = page.getByAltText("Rose");
+//     const logo:Locator = page.getByAltText("Rose");
 
-    await expect(logo).toBeVisible();
+//     await expect(logo).toBeVisible();
 
-await expect(page.getByText("Providing Automation Testing Courses & Training")).toBeVisible();
+/*Get bY Text for non interactable elements */
+// await expect(page.getByText("Providing Automation Testing Courses & Training")).toBeVisible();
     
+/*Get by Role Demo */
+// await page.getByRole('checkbox', {name: 'In Stock only'}).click();
+// await page.getByRole('button', {name: 'Sign In / Sign Up'}).click();
 
+/*Get By Label demo */
+// await page.goto("https://engineerdiaries.com/contactus");
+// await page.waitForTimeout(3000); 
+// await page.getByLabel('Full Name').fill("Kushagra Chaturvedi");
+// await page.waitForTimeout(3000); 
+// await page.getByLabel('Email Address').fill("kushagra.chaturvedi.bhargava@gmail.com");
+await page.waitForTimeout(3000); //used to give a pause for execution
+
+// /*Get By Placeholder demo */
+// await page.getByPlaceholder('Search Flowers...').fill('Rose');
+// await page.waitForTimeout(3000);
+ await page.getByTestId("right-click-box").click();
+await page.waitForTimeout(3000); //used to give a pause for execution
 
 })
 

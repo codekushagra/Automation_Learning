@@ -1,6 +1,6 @@
 import {test,expect,Locator} from "@playwright/test"
 
-test("Xpath Locators",async({page})=>{
+test("Xpath Locators",async({page})=>{ 
     await page.goto("https://demowebshop.tricentis.com/");
     await page.waitForTimeout(3000);
     //1. Relative xpath
@@ -26,6 +26,24 @@ test("Xpath Locators",async({page})=>{
     let productTitles:string[] = await products.allTextContents();
     for(let pt of productTitles){
         console.log(pt);
+
+        //4 . starts with()
+        const buildingProduct = page.locator("//h2/a[starts-with(@href,'/build')]");
+        const count = await buildingProduct.count();
+        expect(count).toBeGreaterThan(0);
+
+
     }
 
-})
+    //text() - return single element
+    const button1:Locator = page.locator("//a[text()='Register']");
+    expect(button1).toBeVisible();
+
+    //normalize space
+    const butto1:Locator = page.locator("//a[normalize-space()='Register']");
+    await expect(butto1).toBeVisible();
+
+    //last() method
+    const link:Locator = page.locator("//div[@class='column follow-us']//li[last()]");
+    console.log("Text content of last element",await link.textContent());
+}) 

@@ -11,7 +11,7 @@ import {test,expect,Locator} from "@playwright/test";
 
 //page.getByAltText()
 test("Playwright Locators",async ({page})=>{
-    await page.goto("https://engineerdiaries.com/selenium");
+    await page.goto("https://engineerdiaries.com/ui-framework");
    
 //     const logo:Locator = page.getByAltText("Rose");
 
@@ -33,9 +33,9 @@ test("Playwright Locators",async ({page})=>{
 await page.waitForTimeout(3000); //used to give a pause for execution
 
 // /*Get By Placeholder demo */
-// await page.getByPlaceholder('Search Flowers...').fill('Rose');
+await page.getByPlaceholder('Search Flowers...').fill('Rose');
 // await page.waitForTimeout(3000);
- await page.getByTestId("right-click-box").click();
+//  await page.getByTestId("right-click-box").click();
 await page.waitForTimeout(3000); //used to give a pause for execution
 
 })
